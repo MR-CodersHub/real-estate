@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LuxeEstate Premium</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container flex justify-between items-center gap-8">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-house-line"></i>
+                </div>
+                Luxe<span>Estate</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index-2.html" class="nav-link">Home2</a></li>
+                    <li><a href="properties.html" class="nav-link">Properties</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions flex items-center gap-6">
+                <div class="user-dropdown-container">
+                    <button class="profile-btn" id="profileDropdownBtn">
+                        <i class="ph ph-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="login.html" class="dropdown-item"><i class="ph ph-sign-in"></i> Log In</a>
+                        <a href="register.html" class="dropdown-item"><i class="ph ph-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-menu">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="index-2.html" class="mobile-nav-link">Home2</a></li>
+                <li><a href="properties.html" class="mobile-nav-link">Properties</a></li>
+                <li><a href="about.html" class="mobile-nav-link active">About</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 6rem 0; color: white; text-align: center;">
+        <div class="container">
+            <h1 style="color: white; margin-bottom: 1rem; font-size: 3rem; font-weight: 700;">About Us</h1>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 1.25rem;">Building trust
+                and delivering
+                excellence in every real estate transaction.</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
+                        alt="Our Team">
+                </div>
+                <div class="about-content">
+                    <h2 style="margin-bottom: 1.5rem;"> redefining the real estate experience.</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Founded in 2020, LuxeEstate started with a simple mission: to make the process of buying,
+                        selling, and renting homes as seamless and stress-free as possible. We believe that real estate
+                        is more than just transactions; it's about helping people find their place in the world.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                        Our team of experienced professionals is dedicated to providing personalized service, market
+                        insights, and innovative solutions tailored to your unique needs.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div>
+                            <h3 style="font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem;">5+</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Years Experience</p>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem;">1k+</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Happy Clients</p>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem;">500+</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Properties Sold</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section-padding" style="background-color: var(--bg-subtle);">
+        <div class="container text-center">
+            <h2 style="margin-bottom: 3rem;">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"><i
+                            class="ph ph-handshake"></i></div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Integrity</h3>
+                    <p style="color: var(--text-muted);">We act with honesty and transparency in all our dealings.</p>
+                </div>
+                <div class="value-card">
+                    <div style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"><i
+                            class="ph ph-star"></i></div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Excellence</h3>
+                    <p style="color: var(--text-muted);">We strive for the highest standards in service and results.</p>
+                </div>
+                <div class="value-card">
+                    <div style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"><i
+                            class="ph ph-users"></i></div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Client Focus</h3>
+                    <p style="color: var(--text-muted);">Your goals are our top priority. We listen and deliver.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="site-logo">
+                        <div class="logo-icon">
+                            <i class="ph-fill ph-house-line"></i>
+                        </div>
+                        Luxe<span>Estate</span>
+                    </a>
+                    <p>Premium real estate solutions for buyers, sellers, and renters. We bring your dream home to
+                        reality with trust and excellence.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index-2.html">Home2</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="ph ph-map-pin"></i> 123 Luxury Lane, Cityville</li>
+                        <li><i class="ph ph-phone"></i> +1 (234) 567-890</li>
+                        <li><i class="ph ph-envelope"></i> info@luxeestate.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeEstate. All rights reserved.</p>
+                <div class="social-links flex gap-4">
+                    <a href="#"><i class="ph ph-facebook-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

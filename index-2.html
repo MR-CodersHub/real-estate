@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home2 - LuxeEstate Premium</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home2.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        function handleImageError(img) {
+            img.onerror = null;
+            img.src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80';
+            img.classList.add('image-fallback');
+        }
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container flex justify-between items-center gap-8">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-house-line"></i>
+                </div>
+                Luxe<span>Estate</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index-2.html" class="nav-link">Home2</a></li>
+                    <li><a href="properties.html" class="nav-link">Properties</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions flex items-center gap-6">
+                <div class="user-dropdown-container">
+                    <button class="profile-btn" id="profileDropdownBtn">
+                        <i class="ph ph-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="login.html" class="dropdown-item"><i class="ph ph-sign-in"></i> Log In</a>
+                        <a href="register.html" class="dropdown-item"><i class="ph ph-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-menu">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="index-2.html" class="mobile-nav-link">Home2</a></li>
+                <li><a href="properties.html" class="mobile-nav-link">Properties</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Slider Section -->
+    <section class="hero-slider-section">
+        <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');">
+                        <div class="container">
+                            <div class="hero-slide-content">
+                                <span class="hero-slide-tag">New Listing</span>
+                                <h1 class="hero-slide-title">Modern Architectural Masterpiece</h1>
+                                <p class="hero-slide-desc">Experience luxury living in this stunning glass-walled estate
+                                    with panoramic ocean views and state-of-the-art amenities.</p>
+                                <div class="hero-slide-actions">
+                                    <a href="property-details-4.html" class="btn btn-secondary">View Property</a>
+                                    <a href="contact.html" class="btn btn-outline"
+                                        style="color: white; border-color: white;">Book Viewing</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1920&q=80');">
+                        <div class="container">
+                            <div class="hero-slide-content">
+                                <span class="hero-slide-tag">Luxury Villa</span>
+                                <h1 class="hero-slide-title">Elegant Beverly Hills Retreat</h1>
+                                <p class="hero-slide-desc">A sophisticated sanctuary offering unparalleled privacy,
+                                    exquisite design, and world-class entertainment spaces.</p>
+                                <div class="hero-slide-actions">
+                                    <a href="property-details-1.html" class="btn btn-secondary">View Property</a>
+                                    <a href="contact.html" class="btn btn-outline"
+                                        style="color: white; border-color: white;">Inquire Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80');">
+                        <div class="container">
+                            <div class="hero-slide-content">
+                                <span class="hero-slide-tag">Investment Opportunity</span>
+                                <h1 class="hero-slide-title">Penthouse at the City Center</h1>
+                                <p class="hero-slide-desc">Soar above the city in this magnificent penthouse with
+                                    360-degree views and ultra-premium finishes.</p>
+                                <div class="hero-slide-actions">
+                                    <a href="property-details-5.html" class="btn btn-secondary">View Property</a>
+                                    <a href="contact.html" class="btn btn-outline"
+                                        style="color: white; border-color: white;">Contact Agent</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Controls -->
+            <div class="swiper-button-next" style="color: white;"></div>
+            <div class="swiper-button-prev" style="color: white;"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Floating Search -->
+        <div class="floating-search-container">
+            <div class="search-glass">
+                <div class="search-group">
+                    <label class="search-label">Location</label>
+                    <input type="text" class="search-input" placeholder="Search City...">
+                </div>
+                <div class="search-group">
+                    <label class="search-label">Property Style</label>
+                    <select class="search-select">
+                        <option>Luxury Estate</option>
+                        <option>Modern Villa</option>
+                        <option>Sky Penthouse</option>
+                        <option>Beach House</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <label class="search-label">Price Interval</label>
+                    <select class="search-select">
+                        <option>$1M - $2M</option>
+                        <option>$2M - $5M</option>
+                        <option>$5M - $10M</option>
+                        <option>$10M+</option>
+                    </select>
+                </div>
+                <button class="search-btn-modern">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <span>Find Now</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listings Highlight -->
+    <section class="listings-highlight">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; margin-bottom: 1rem;">Exclusive Residences</h2>
+                <div style="width: 80px; height: 4px; background: var(--secondary); margin: 0 auto 1.5rem auto;"></div>
+                <p style="color: var(--text-muted); font-size: 1.125rem;">Hand-selected premium properties for the most
+                    discerning clients.</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
+                <!-- Modern Card 1 -->
+                <a href="property-details-1.html" class="modern-listing-card-link">
+                    <div class="modern-listing-card">
+                        <div class="modern-listing-img">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                                alt="Residence" onerror="handleImageError(this)">
+                            <span class="modern-listing-badge">Selling Fast</span>
+                            <div class="modern-listing-price">$1,850,000</div>
+                        </div>
+                        <div class="modern-listing-content">
+                            <h3 class="modern-listing-title">Glass Horizon Estate</h3>
+                            <p class="modern-listing-location"><i class="ph ph-map-pin"></i> 990 Lake View, Miami, FL
+                            </p>
+                            <div class="modern-listing-meta">
+                                <span><i class="ph ph-bed"></i> 4 Beds</span>
+                                <span><i class="ph ph-shower"></i> 4 Baths</span>
+                                <span><i class="ph ph-arrows-out"></i> 3,800 sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Modern Card 2 -->
+                <a href="property-details-2.html" class="modern-listing-card-link">
+                    <div class="modern-listing-card">
+                        <div class="modern-listing-img">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80"
+                                alt="Residence" onerror="handleImageError(this)">
+                            <span class="modern-listing-badge">Featured</span>
+                            <div class="modern-listing-price">$2,500,000</div>
+                        </div>
+                        <div class="modern-listing-content">
+                            <h3 class="modern-listing-title">The Palm Sanctuary</h3>
+                            <p class="modern-listing-location"><i class="ph ph-map-pin"></i> 123 Palm Drive, Beverly
+                                Hills,
+                                CA</p>
+                            <div class="modern-listing-meta">
+                                <span><i class="ph ph-bed"></i> 5 Beds</span>
+                                <span><i class="ph ph-shower"></i> 4 Baths</span>
+                                <span><i class="ph ph-arrows-out"></i> 4,500 sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Modern Card 3 -->
+                <a href="property-details-3.html" class="modern-listing-card-link">
+                    <div class="modern-listing-card">
+                        <div class="modern-listing-img">
+                            <img src="assets/images/properties/penthouse.jpg" alt="Skyline Penthouse"
+                                onerror="handleImageError(this)">
+                            <span class="modern-listing-badge">Luxury</span>
+                            <div class="modern-listing-price">$8,500/mo</div>
+                        </div>
+                        <div class="modern-listing-content">
+                            <h3 class="modern-listing-title">Skyline Penthouse</h3>
+                            <p class="modern-listing-location"><i class="ph ph-map-pin"></i> 500 Skyline Blvd, New York,
+                                NY
+                            </p>
+                            <div class="modern-listing-meta">
+                                <span><i class="ph ph-bed"></i> 3 Beds</span>
+                                <span><i class="ph ph-shower"></i> 3 Baths</span>
+                                <span><i class="ph ph-arrows-out"></i> 2,500 sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center" style="margin-top: 4rem;">
+                <a href="properties.html" class="btn btn-primary">Explore All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-content">"Finding our dream home with LuxeEstate was an absolute
+                                pleasure. Their attention to detail and commitment to excellence made the entire process
+                                seamless."</p>
+                            <div class="testimonial-user">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                                    alt="Client" class="testimonial-avatar" onerror="handleImageError(this)">
+                                <div class="testimonial-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Happy Homeowner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-content">"The level of professionalism and luxury service provided by
+                                LuxeEstate is unmatched. They truly understand what high-end real estate is about."</p>
+                            <div class="testimonial-user">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                                    alt="Client" class="testimonial-avatar" onerror="handleImageError(this)">
+                                <div class="testimonial-info">
+                                    <h4>David Miller</h4>
+                                    <p>Real Estate Investor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern CTA -->
+    <section class="modern-cta">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>Ready to Own Luxury?</h2>
+                    <p>Contact our elite team of experts today and experience the difference of LuxeEstate. We turn your
+                        vision of luxury into reality.</p>
+                    <div class="flex justify-center gap-6" style="flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-secondary"
+                            style="padding: 1rem 2.5rem; font-size: 1.125rem;">Start Your Journey</a>
+                        <a href="tel:+1234567890" class="btn btn-outline"
+                            style="color: white; border-color: white; padding: 1rem 2.5rem;">Call Our Agents</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="site-logo">
+                        <div class="logo-icon">
+                            <i class="ph-fill ph-house-line"></i>
+                        </div>
+                        Luxe<span>Estate</span>
+                    </a>
+                    <p>Premium real estate solutions for buyers, sellers, and renters. We bring your dream home to
+                        reality with trust and excellence.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index-2.html">Home2</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="ph ph-map-pin"></i> 90210 Beverly Hills, California</li>
+                        <li><i class="ph ph-phone"></i> +1 (234) 567-890</li>
+                        <li><i class="ph ph-envelope"></i> info@luxeestate.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeEstate. All rights reserved.</p>
+                <div class="social-links flex gap-4">
+                    <a href="#"><i class="ph ph-facebook-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Init Hero Swiper
+        const heroSwiper = new Swiper('.heroSwiper', {
+            loop: true,
+            effect: 'fade',
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Init Testimonial Swiper
+        const testimonialSwiper = new Swiper('.testimonialSwiper', {
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 4000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+
+</html>

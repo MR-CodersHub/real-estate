@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - LuxeEstate Premium</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        function handleImageError(img) {
+            img.onerror = null; // Prevent infinite loop
+            const fallbacks = {
+                'blog-01': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+                'blog-02': 'https://images.unsplash.com/photo-1560520653-900a068fd403?auto=format&fit=crop&w=800&q=80',
+                'blog-03': 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80',
+                'blog-04': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+                'blog-05': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
+                'blog-06': 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80'
+            };
+            const id = img.getAttribute('data-id') || 'blog-01';
+            img.src = fallbacks[id] || fallbacks['blog-01'];
+            img.classList.add('image-fallback');
+        }
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container flex justify-between items-center gap-8">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-house-line"></i>
+                </div>
+                Luxe<span>Estate</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index-2.html" class="nav-link">Home2</a></li>
+                    <li><a href="properties.html" class="nav-link">Properties</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions flex items-center gap-6">
+                <div class="user-dropdown-container">
+                    <button class="profile-btn" id="profileDropdownBtn">
+                        <i class="ph ph-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="login.html" class="dropdown-item"><i class="ph ph-sign-in"></i> Log In</a>
+                        <a href="register.html" class="dropdown-item"><i class="ph ph-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-menu">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="index-2.html" class="mobile-nav-link">Home2</a></li>
+                <li><a href="properties.html" class="mobile-nav-link">Properties</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="blog.html" class="mobile-nav-link active">Blog</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: var(--primary); padding: 5rem 0; color: white; text-align: center;">
+        <div class="container">
+            <h1 style="color: white; margin-bottom: 1rem;">Real Estate Insights & News</h1>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">Stay informed with the latest market
+                trends, tips, and expert advice.</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem;">
+
+                <!-- Blog Post 1: Market Predictions -->
+                <article class="blog-card">
+                    <div class="blog-thumb">
+                        <img src="assets/images/blog/blog-01.jpg?v=2" alt="Market Trends" data-id="blog-01"
+                            onerror="handleImageError(this)">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-calendar"></i> Jan 20, 2026</span>
+                            <span><i class="ph ph-tag"></i> Market Trends</span>
+                        </div>
+                        <h3 class="blog-title">2026 Real Estate Market Predictions</h3>
+                        <p class="blog-excerpt">
+                            Stay ahead of the curve with our expert analysis of the 2026 housing market. We dive deep
+                            into interest rate forecasts, inventory levels, and buyer demand trends.
+                        </p>
+                        <a href="blog-details-1.html" class="btn btn-outline blog-btn">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2: First-Time Buyers -->
+                <article class="blog-card">
+                    <div class="blog-thumb">
+                        <img src="assets/images/blog/blog-02.jpg?v=2" alt="First-Time Buyers" data-id="blog-02"
+                            onerror="handleImageError(this)">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-calendar"></i> Jan 18, 2026</span>
+                            <span><i class="ph ph-tag"></i> Buying Tips</span>
+                        </div>
+                        <h3 class="blog-title">First-Time Home Buyer's Guide</h3>
+                        <p class="blog-excerpt">
+                            Embarking on your first home purchase? Our comprehensive guide walks you through every step,
+                            from securing financing to finding the perfect neighborhood.
+                        </p>
+                        <a href="blog-details-2.html" class="btn btn-outline blog-btn">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3: Home Staging -->
+                <article class="blog-card">
+                    <div class="blog-thumb">
+                        <img src="assets/images/blog/blog-03.jpg?v=2" alt="Home Staging" data-id="blog-03"
+                            onerror="handleImageError(this)">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-calendar"></i> Jan 15, 2026</span>
+                            <span><i class="ph ph-tag"></i> Selling Tips</span>
+                        </div>
+                        <h3 class="blog-title">How to Stage Your Home for Maximum Appeal</h3>
+                        <p class="blog-excerpt">
+                            Maximize your selling price with professional staging techniques. Learn how to highlight
+                            your home's best features and create a lasting first impression.
+                        </p>
+                        <a href="blog-details-3.html" class="btn btn-outline blog-btn">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4: Investment -->
+                <article class="blog-card">
+                    <div class="blog-thumb">
+                        <img src="assets/images/blog/blog-04.jpg?v=2" alt="Investment Strategies" data-id="blog-04"
+                            onerror="handleImageError(this)">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-calendar"></i> Jan 12, 2026</span>
+                            <span><i class="ph ph-tag"></i> Investment</span>
+                        </div>
+                        <h3 class="blog-title">Real Estate Investment Strategies for 2026</h3>
+                        <p class="blog-excerpt">
+                            Building a property portfolio? Explore the most lucrative investment strategies for the
+                            upcoming year, from rental income to fix-and-flip opportunities.
+                        </p>
+                        <a href="blog-details-4.html" class="btn btn-outline blog-btn">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5: Neighborhoods -->
+                <article class="blog-card">
+                    <div class="blog-thumb">
+                        <img src="assets/images/blog/blog-05.jpg?v=2" alt="Neighborhood Watch" data-id="blog-05"
+                            onerror="handleImageError(this)">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-calendar"></i> Jan 10, 2026</span>
+                            <span><i class="ph ph-tag"></i> Neighborhood</span>
+                        </div>
+                        <h3 class="blog-title">Top 10 Neighborhoods to Watch in 2026</h3>
+                        <p class="blog-excerpt">
+                            Location, location, location. We've identified the top 10 up-and-coming neighborhoods poised
+                            for significant growth and value appreciation this year.
+                        </p>
+                        <a href="blog-details-5.html" class="btn btn-outline blog-btn">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6: Financing -->
+                <article class="blog-card">
+                    <div class="blog-thumb">
+                        <img src="assets/images/blog/blog-06.jpg?v=2" alt="Financing Options" data-id="blog-06"
+                            onerror="handleImageError(this)">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-calendar"></i> Jan 8, 2026</span>
+                            <span><i class="ph ph-tag"></i> Financing</span>
+                        </div>
+                        <h3 class="blog-title">Understanding Mortgage Options in 2026</h3>
+                        <p class="blog-excerpt">
+                            Confused by mortgage rates and loan types? We break down the latest financing options to
+                            help you choose the best fit for your financial situation.
+                        </p>
+                        <a href="blog-details-6.html" class="btn btn-outline blog-btn">Read More</a>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section style="background-color: var(--bg-subtle); padding: 4rem 0;">
+        <div class="container text-center">
+            <h2 style="margin-bottom: 1rem;">Subscribe to Our Newsletter</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem auto;">
+                Get the latest real estate news, market insights, and exclusive tips delivered to your inbox.
+            </p>
+            <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 1rem;">
+                <input type="email" placeholder="Enter your email"
+                    style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="site-logo">
+                        <div class="logo-icon">
+                            <i class="ph-fill ph-house-line"></i>
+                        </div>
+                        Luxe<span>Estate</span>
+                    </a>
+                    <p>Premium real estate solutions for buyers, sellers, and renters. We bring your dream home to
+                        reality with trust and excellence.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index-2.html">Home2</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="ph ph-map-pin"></i> 123 Luxury Lane, Cityville</li>
+                        <li><i class="ph ph-phone"></i> +1 (234) 567-890</li>
+                        <li><i class="ph ph-envelope"></i> info@luxeestate.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeEstate. All rights reserved.</p>
+                <div class="social-links flex gap-4">
+                    <a href="#"><i class="ph ph-facebook-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

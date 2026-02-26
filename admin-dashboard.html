@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - LuxeEstate</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        .dashboard-sidebar {
+            background: var(--bg-white);
+            border-right: 1px solid var(--border-light);
+            padding: 2rem;
+        }
+
+        .dashboard-main {
+            padding: 3rem;
+            background: var(--bg-body);
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: var(--bg-subtle);
+            color: var(--primary);
+        }
+
+        .sidebar-link i {
+            font-size: 1.25rem;
+        }
+
+        .sidebar-link.logout {
+            margin-top: auto;
+            color: #ef4444;
+        }
+
+        .sidebar-link.logout:hover {
+            background: #fef2f2;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--bg-subtle);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .table-container {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 2rem;
+            background: var(--bg-subtle);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.9375rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-badge.approved {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-badge.rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Scoped Admin Dashboard Styles */
+        .admin-dashboard .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            overflow: visible;
+        }
+
+        .admin-dashboard .admin-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: var(--header-height);
+            padding: 0 var(--container-padding);
+            overflow: visible;
+        }
+
+        .admin-dashboard .header-main-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .admin-dashboard .header-mobile-action-row {
+            display: none;
+        }
+
+        .admin-dashboard .desktop-only {
+            display: initial;
+        }
+
+        .admin-dashboard .dashboard-main {
+            padding: 3rem;
+            background: var(--bg-body);
+        }
+
+        @media (max-width: 992px) {
+            .admin-dashboard .header-mobile-action-row {
+                display: flex;
+                align-items: center;
+            }
+
+            .admin-dashboard #adminSidebarToggle {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                width: 44px;
+                height: 44px;
+                border-radius: var(--radius-md);
+                background: var(--bg-subtle);
+                color: var(--primary);
+                font-size: 22px;
+                line-height: 1;
+                cursor: pointer;
+                transition: var(--transition);
+                z-index: 2001;
+                border: none;
+                margin: 0;
+            }
+
+            .admin-dashboard .desktop-only {
+                display: none;
+            }
+
+            .admin-dashboard .dashboard-sidebar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                bottom: 0;
+                width: 280px;
+                z-index: 2000;
+                transition: var(--transition);
+                display: block !important;
+                padding-top: 5rem;
+            }
+
+            .admin-dashboard .dashboard-sidebar.active {
+                left: 0;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .admin-dashboard .dashboard-main {
+                padding: 1.5rem;
+                width: 100%;
+                overflow-x: hidden;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .admin-dashboard .admin-header-container {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                padding: 12px 16px !important;
+                min-height: auto !important;
+                gap: 8px !important;
+            }
+
+            .admin-dashboard .header-main-row {
+                width: 100%;
+            }
+
+            .admin-dashboard .header-mobile-action-row {
+                width: 100%;
+                justify-content: flex-start;
+                padding-top: 8px;
+                border-top: 1px solid var(--border-light);
+                display: flex !important;
+            }
+
+            .admin-dashboard .site-logo {
+                font-size: 1.1rem;
+            }
+
+            .admin-dashboard .logo-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 1rem;
+            }
+
+            .admin-dashboard .dashboard-main {
+                padding: 1.25rem 12px;
+                margin-top: 10px;
+                /* Safe spacing from sticky header */
+            }
+
+            .admin-dashboard .dashboard-main h2 {
+                font-size: 1.5rem !important;
+                margin-bottom: 0.25rem;
+            }
+
+            .admin-dashboard .dashboard-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem;
+            }
+
+            .admin-dashboard .stat-card {
+                padding: 1.5rem;
+            }
+
+            .admin-dashboard .table-header {
+                padding: 1.25rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .admin-dashboard .dashboard-content-section .flex.justify-between.items-center {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .admin-dashboard .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body class="admin-dashboard">
+    <header class="site-header">
+        <div class="container admin-header-container">
+            <!-- Brand & Profile Row -->
+            <div class="header-main-row">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">
+                        <i class="ph-fill ph-house-line"></i>
+                    </div>
+                    Luxe<span>Estate</span>
+                </a>
+
+                <div class="header-right-box flex items-center gap-4">
+                    <span class="desktop-only" style="font-weight: 600; color: var(--primary);">Admin Dashboard</span>
+                    <div class="user-dropdown-container">
+                        <button class="profile-btn" id="profileDropdownBtn">
+                            <i class="ph ph-user-circle"></i>
+                        </button>
+                        <div class="dropdown-menu" id="profileDropdown">
+                            <a href="index.html" class="dropdown-item"><i class="ph ph-house"></i> View Site</a>
+                            <a href="login.html" class="dropdown-item"><i class="ph ph-sign-out"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Row (Mobile Hamburger) -->
+            <div class="header-mobile-action-row">
+                <button class="mobile-menu-btn" id="adminSidebarToggle">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="adminSidebar">
+            <nav class="sidebar-menu">
+                <a href="#" class="sidebar-link active" onclick="showSection('overview', this)">
+                    <i class="ph ph-chart-line-up"></i> Overview
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('properties', this)">
+                    <i class="ph ph-buildings"></i> Manage Properties
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('users', this)">
+                    <i class="ph ph-users"></i> User Management
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('inquiries', this)">
+                    <i class="ph ph-envelope"></i> Inquiries
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('settings', this)">
+                    <i class="ph ph-gear"></i> Settings
+                </a>
+                <a href="login.html" class="sidebar-link logout" id="logoutBtn">
+                    <i class="ph ph-sign-out"></i> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview-section" class="dashboard-content-section">
+                <div style="margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 2rem;">Welcome Back, Admin</h2>
+                    <p style="color: var(--text-muted);">Here's what's happening with your real estate portal today.</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="ph ph-buildings"></i></div>
+                        <span class="stat-label">Total Properties</span>
+                        <span class="stat-value">1,284</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="ph ph-user-plus"></i></div>
+                        <span class="stat-label">New Users</span>
+                        <span class="stat-value">48</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="ph ph-hand-coins"></i></div>
+                        <span class="stat-label">Active Listings</span>
+                        <span class="stat-value">856</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="ph ph-chat-circle-dots"></i></div>
+                        <span class="stat-label">Total Inquiries</span>
+                        <span class="stat-value">124</span>
+                    </div>
+                </div>
+
+                <!-- Recent Inquiries Preview -->
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3 style="font-size: 1.25rem;">Recent Property Inquiries</h3>
+                        <button class="btn btn-outline" onclick="showSection('inquiries')"
+                            style="padding: 0.5rem 1rem; font-size: 0.875rem;">View All</button>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Inquirer</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Luxury Villa in Beverly Hills</td>
+                                    <td>John Doe</td>
+                                    <td>Oct 24, 2026</td>
+                                    <td><span class="status-badge approved">Approved</span></td>
+                                    <td><a href="#" class="manage-action"
+                                            style="color: var(--secondary); font-weight: 600;">Manage</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Modern Apartment Downtown</td>
+                                    <td>Sarah Smith</td>
+                                    <td>Oct 23, 2026</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td><a href="#" class="manage-action"
+                                            style="color: var(--secondary); font-weight: 600;">Manage</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Manage Properties Section -->
+            <section id="properties-section" class="dashboard-content-section" style="display: none;">
+                <div class="flex justify-between items-center"
+                    style="margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h2 style="font-size: 2rem;">Manage Properties</h2>
+                        <p style="color: var(--text-muted);">Add, edit, or remove listings from the platform.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openAdminModal('Add Property')"><i
+                            class="ph ph-plus-circle"></i> Add New Property</button>
+                </div>
+
+                <div class="table-container">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Property Name</th>
+                                    <th>Location</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#P1024</td>
+                                    <td>Glass Horizon Estate</td>
+                                    <td>Miami, FL</td>
+                                    <td>$1,850,000</td>
+                                    <td><span class="status-badge approved">Active</span></td>
+                                    <td><a href="#" style="color: var(--secondary); font-weight: 600;"
+                                            onclick="openAdminModal('Edit Property')">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#P1025</td>
+                                    <td>The Palm Sanctuary</td>
+                                    <td>Beverly Hills, CA</td>
+                                    <td>$2,500,000</td>
+                                    <td><span class="status-badge approved">Active</span></td>
+                                    <td><a href="#" style="color: var(--secondary); font-weight: 600;"
+                                            onclick="openAdminModal('Edit Property')">Edit</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Management Section -->
+            <section id="users-section" class="dashboard-content-section" style="display: none;">
+                <div class="flex justify-between items-center"
+                    style="margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h2 style="font-size: 2rem;">User Management</h2>
+                        <p style="color: var(--text-muted);">View and manage registered users and their roles.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openAdminModal('Add User')"><i class="ph ph-user-plus"></i>
+                        Add New User</button>
+                </div>
+
+                <div class="table-container">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Joined</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="user-cell" style="display: flex; align-items: center; gap: 0.75rem;">
+                                        <div
+                                            style="width: 32px; height: 32px; background: var(--bg-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                            JD</div>
+                                        John Doe
+                                    </td>
+                                    <td>john@example.com</td>
+                                    <td>User</td>
+                                    <td>Oct 15, 2026</td>
+                                    <td><span class="status-badge approved">Active</span></td>
+                                    <td><a href="#" style="color: var(--secondary); font-weight: 600;"
+                                            onclick="openAdminModal('User Settings')">Settings</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="user-cell" style="display: flex; align-items: center; gap: 0.75rem;">
+                                        <div
+                                            style="width: 32px; height: 32px; background: var(--bg-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                            SS</div>
+                                        Sarah Smith
+                                    </td>
+                                    <td>sarah@luxury.com</td>
+                                    <td>Agent</td>
+                                    <td>Sep 28, 2026</td>
+                                    <td><span class="status-badge approved">Active</span></td>
+                                    <td><a href="#" style="color: var(--secondary); font-weight: 600;"
+                                            onclick="openAdminModal('User Settings')">Settings</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inquiries Section -->
+            <section id="inquiries-section" class="dashboard-content-section" style="display: none;">
+                <div style="margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 2rem;">Property Inquiries</h2>
+                    <p style="color: var(--text-muted);">Full list of messages and requests from potential buyers.</p>
+                </div>
+
+                <div class="table-container">
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Property</th>
+                                    <th>Inquirer</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Oct 24, 2026</td>
+                                    <td>Luxury Villa in Beverly Hills</td>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td><span class="status-badge approved">Approved</span></td>
+                                    <td><button class="btn btn-outline"
+                                            style="padding: 0.4rem 0.8rem; font-size: 0.8rem;"
+                                            onclick="openAdminModal('Inquiry Message')">View Message</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="dashboard-content-section" style="display: none;">
+                <div style="margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 2rem;">System Settings</h2>
+                    <p style="color: var(--text-muted);">Configure global platform parameters and security.</p>
+                </div>
+
+                <div
+                    style="max-width: 600px; background: white; padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+                    <form onsubmit="return false;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Platform
+                                Name</label>
+                            <input type="text" value="LuxeEstate Premium"
+                                style="width: 100%; padding: 0.875rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Support
+                                Email</label>
+                            <input type="email" value="support@luxeestate.com"
+                                style="width: 100%; padding: 0.875rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Maintenance
+                                Mode</label>
+                            <select
+                                style="width: 100%; padding: 0.875rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+                                <option value="off">Disabled</option>
+                                <option value="on">Enabled</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;"
+                            onclick="alert('Settings updated successfully!')">Save Configuration</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Admin Modal -->
+    <div id="adminModal" class="dashboard-modal"
+        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 3000; align-items: center; justify-content: center;">
+        <div
+            style="background: white; padding: 2.5rem; border-radius: var(--radius-lg); width: 95%; max-width: 600px; position: relative; box-shadow: var(--shadow-premium);">
+            <button onclick="closeAdminModal()"
+                style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted);"><i
+                    class="ph ph-x"></i></button>
+            <h3 id="adminModalTitle" style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--primary);">Modal
+                Title</h3>
+            <div id="adminModalBody" style="margin-bottom: 2rem;">
+                <!-- Content -->
+            </div>
+            <div class="flex justify-end gap-3">
+                <button class="btn btn-outline" onclick="closeAdminModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="handleAdminModalAction()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function showSection(sectionId, link) {
+            // Hide all sections
+            document.querySelectorAll('.dashboard-content-section').forEach(s => s.style.display = 'none');
+
+            // Show target section
+            const target = document.getElementById(`${sectionId}-section`);
+            if (target) target.style.display = 'block';
+
+            // Update sidebar links
+            if (link) {
+                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            } else {
+                // Find link by text if called from elsewhere
+                document.querySelectorAll('.sidebar-link').forEach(l => {
+                    l.classList.remove('active');
+                    if (l.textContent.toLowerCase().includes(sectionId)) l.classList.add('active');
+                });
+            }
+
+            // Close mobile sidebar if active
+            const sidebar = document.getElementById('adminSidebar');
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                document.getElementById('adminSidebarToggle').classList.remove('active');
+            }
+        }
+
+        function openAdminModal(title) {
+            const modalTitle = document.getElementById('adminModalTitle');
+            const modalBody = document.getElementById('adminModalBody');
+            modalTitle.textContent = title;
+
+            if (title.includes('Property')) {
+                modalBody.innerHTML = `
+                    <div class="flex flex-direction-column gap-4">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.4rem;">Property Title</label>
+                            <input type="text" class="search-input" placeholder="e.g. Modern Villa" style="width: 100%; border: 1px solid var(--border-light); padding: 0.75rem; border-radius: var(--radius-md);">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.4rem;">Price</label>
+                            <input type="text" class="search-input" placeholder="e.g. $1,200,000" style="width: 100%; border: 1px solid var(--border-light); padding: 0.75rem; border-radius: var(--radius-md);">
+                        </div>
+                    </div>
+                `;
+            } else if (title.includes('User')) {
+                modalBody.innerHTML = `
+                    <div class="flex flex-direction-column gap-4">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.4rem;">User Full Name</label>
+                            <input type="text" class="search-input" style="width: 100%; border: 1px solid var(--border-light); padding: 0.75rem; border-radius: var(--radius-md);">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.4rem;">Email</label>
+                            <input type="email" class="search-input" style="width: 100%; border: 1px solid var(--border-light); padding: 0.75rem; border-radius: var(--radius-md);">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.4rem;">Role</label>
+                            <select style="width: 100%; border: 1px solid var(--border-light); padding: 0.75rem; border-radius: var(--radius-md);">
+                                <option>User</option>
+                                <option>Agent</option>
+                            </select>
+                        </div>
+                    </div>
+                `;
+            } else {
+                modalBody.innerHTML = `<p style="color: var(--text-muted);">Performing action for: <strong>${title}</strong>. This is a simulation of administrative controls.</p>`;
+            }
+
+            document.getElementById('adminModal').style.display = 'flex';
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+
+        function handleAdminModalAction() {
+            alert('Action completed successfully!');
+            closeAdminModal();
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            localStorage.removeItem('isAdminLoggedIn');
+            localStorage.removeItem('userRole');
+            window.location.href = 'login.html';
+        });
+
+        // Mobile Sidebar Toggle
+        const adminSidebarToggle = document.getElementById('adminSidebarToggle');
+        const adminSidebar = document.getElementById('adminSidebar');
+
+        if (adminSidebarToggle && adminSidebar) {
+            adminSidebarToggle.addEventListener('click', function () {
+                adminSidebar.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

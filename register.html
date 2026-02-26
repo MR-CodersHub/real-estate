@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - LuxeEstate</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+        <!-- Logo centered -->
+        <div class="auth-logo-center">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-house-line"></i>
+                </div>
+                Luxe<span>Estate</span>
+            </a>
+        </div>
+
+        <!-- Register Card -->
+        <div class="auth-card">
+            <h2>Create Account</h2>
+            <p class="auth-subtitle">Join LuxeEstate to unlock exclusive features</p>
+
+            <form action="#" method="POST">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div class="auth-form-group" style="margin-bottom: 0;">
+                        <label class="auth-label">First Name</label>
+                        <input type="text" class="auth-input" placeholder="John" required>
+                    </div>
+                    <div class="auth-form-group" style="margin-bottom: 0;">
+                        <label class="auth-label">Last Name</label>
+                        <input type="text" class="auth-input" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="auth-form-group">
+                    <label class="auth-label">Email Address</label>
+                    <input type="email" class="auth-input" placeholder="you@example.com" required>
+                </div>
+
+                <div class="auth-form-group">
+                    <label class="auth-label">Password</label>
+                    <input type="password" class="auth-input" placeholder="Create a strong password" required>
+                </div>
+
+                <div class="auth-form-group">
+                    <label class="auth-label">I am a:</label>
+                    <select class="auth-input" style="background: white;" required>
+                        <option value="">Select your role</option>
+                        <option value="buyer">Home Buyer</option>
+                        <option value="seller">Home Seller</option>
+                        <option value="renter">Renter</option>
+                        <option value="agent">Real Estate Agent</option>
+                    </select>
+                </div>
+
+                <div class="auth-form-group">
+                    <label style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer;">
+                        <input type="checkbox" required style="width: 16px; height: 16px; margin-top: 3px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
+                            I agree to the <a href="#" style="color: var(--secondary);">Terms</a> and <a href="#"
+                                style="color: var(--secondary);">Privacy Policy</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Create Account
+                </button>
+
+                <div class="auth-divider">or sign up with</div>
+
+                <div class="auth-social-grid">
+                    <button type="button" class="btn btn-outline" style="font-size: 0.9rem;">
+                        <i class="ph ph-google-logo"></i> Google
+                    </button>
+                    <button type="button" class="btn btn-outline" style="font-size: 0.9rem;">
+                        <i class="ph ph-facebook-logo"></i> Facebook
+                    </button>
+                </div>
+
+                <p class="auth-footer-text">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </p>
+            </form>
+        </div>
+
+        <!-- Back to Home Link -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html"
+                style="color: var(--text-muted); font-size: 0.875rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <i class="ph ph-arrow-left"></i> Back to Homepage
+            </a>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

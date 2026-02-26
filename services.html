@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - LuxeEstate Premium</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container flex justify-between items-center gap-8">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-house-line"></i>
+                </div>
+                Luxe<span>Estate</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index-2.html" class="nav-link">Home2</a></li>
+                    <li><a href="properties.html" class="nav-link">Properties</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions flex items-center gap-6">
+                <div class="user-dropdown-container">
+                    <button class="profile-btn" id="profileDropdownBtn">
+                        <i class="ph ph-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="login.html" class="dropdown-item"><i class="ph ph-sign-in"></i> Log In</a>
+                        <a href="register.html" class="dropdown-item"><i class="ph ph-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-menu">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="index-2.html" class="mobile-nav-link">Home2</a></li>
+                <li><a href="properties.html" class="mobile-nav-link">Properties</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="services.html" class="mobile-nav-link active">Services</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 6rem 0; color: white; text-align: center;">
+        <div class="container">
+            <h1 style="color: white; margin-bottom: 1rem;">Our Services</h1>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">Comprehensive real estate solutions
+                tailored to meet all your property needs.</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem;">
+
+                <!-- Service 1: Buy a Home -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </div>
+                    <h3 class="service-title">Buy a Home</h3>
+                    <p class="service-desc">
+                        Find your dream home with our extensive listings and expert guidance. We offer immersive virtual
+                        tours,
+                        detailed property information, and personalized recommendations based on your preferences.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Extensive property database
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Virtual property tours</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Mortgage assistance</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Negotiation support</li>
+                    </ul>
+                    <a href="service-details.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Learn
+                        More</a>
+                </div>
+
+                <!-- Service 2: Sell a Home -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <i class="ph ph-handshake"></i>
+                    </div>
+                    <h3 class="service-title">Sell a Home</h3>
+                    <p class="service-desc">
+                        Maximize your property's value with our professional selling services. From market analysis to
+                        closing,
+                        we handle every detail to ensure a smooth and profitable sale.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Professional photography
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Market value analysis</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Strategic marketing</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Expert negotiations</li>
+                    </ul>
+                    <a href="service-details.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Learn
+                        More</a>
+                </div>
+
+                <!-- Service 3: Rent a Home -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <i class="ph ph-armchair"></i>
+                    </div>
+                    <h3 class="service-title">Rent a Home</h3>
+                    <p class="service-desc">
+                        Find the perfect rental property with flexible terms and transparent pricing. Our platform makes
+                        searching, applying, and managing your rental seamless and stress-free.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Verified rental listings
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Online applications</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Digital lease signing</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Rent payment portal</li>
+                    </ul>
+                    <a href="service-details.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Learn
+                        More</a>
+                </div>
+
+                <!-- Service 4: Property Management -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <i class="ph ph-buildings"></i>
+                    </div>
+                    <h3 class="service-title">Property Management</h3>
+                    <p class="service-desc">
+                        Let us handle the day-to-day management of your investment properties. From tenant screening to
+                        maintenance coordination, we ensure your properties are well-maintained and profitable.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Tenant screening</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Rent collection</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Maintenance coordination
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Financial reporting</li>
+                    </ul>
+                    <a href="service-details.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Learn
+                        More</a>
+                </div>
+
+                <!-- Service 5: Investment Consulting -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <i class="ph ph-chart-line-up"></i>
+                    </div>
+                    <h3 class="service-title">Investment Consulting</h3>
+                    <p class="service-desc">
+                        Make informed investment decisions with our expert market analysis and strategic guidance. We
+                        help
+                        you identify lucrative opportunities and maximize your real estate portfolio returns.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Market analysis</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> ROI projections</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Portfolio diversification
+                        </li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Risk assessment</li>
+                    </ul>
+                    <a href="service-details.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Learn
+                        More</a>
+                </div>
+
+                <!-- Service 6: Commercial Real Estate -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <i class="ph ph-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Commercial Real Estate</h3>
+                    <p class="service-desc">
+                        Specialized services for commercial property transactions. Whether you're looking for office
+                        space,
+                        retail locations, or industrial properties, we have the expertise to meet your business needs.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Office space solutions</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Retail locations</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Industrial properties</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);"><i class="ph ph-check-circle"
+                                style="color: var(--secondary); margin-right: 0.5rem;"></i> Lease negotiations</li>
+                    </ul>
+                    <a href="service-details.html" class="btn btn-primary" style="width: 100%; margin-top: auto;">Learn
+                        More</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background-color: var(--primary); padding: 4rem 0; color: white;">
+        <div class="container text-center">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Get Started?</h2>
+            <p style="color: var(--text-light); opacity: 0.9; max-width: 600px; margin: 0 auto 2rem auto;">
+                Contact our team today to discuss how we can help you achieve your real estate goals.
+            </p>
+            <div class="flex gap-4" style="justify-content: center;">
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                <a href="about.html" class="btn" style="border: 1px solid white; color: white;">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="site-logo">
+                        <div class="logo-icon">
+                            <i class="ph-fill ph-house-line"></i>
+                        </div>
+                        Luxe<span>Estate</span>
+                    </a>
+                    <p>Premium real estate solutions for buyers, sellers, and renters. We bring your dream home to
+                        reality with trust and excellence.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index-2.html">Home2</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="ph ph-map-pin"></i> 123 Luxury Lane, Cityville</li>
+                        <li><i class="ph ph-phone"></i> +1 (234) 567-890</li>
+                        <li><i class="ph ph-envelope"></i> info@luxeestate.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeEstate. All rights reserved.</p>
+                <div class="social-links flex gap-4">
+                    <a href="#"><i class="ph ph-facebook-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

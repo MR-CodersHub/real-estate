@@ -1,0 +1,487 @@
+/* Home Page 2 Specific Styles */
+
+/* Hero Slider */
+.hero-slider-section {
+    position: relative;
+    height: calc(100vh - var(--header-height));
+    min-height: 600px;
+    width: 100%;
+    /* overflow: hidden; removed to allow floating search overflow */
+}
+
+/* Ensure Swiper itself clips its slides */
+.heroSwiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0.2) 100%);
+    z-index: 1;
+}
+
+.hero-slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1.5rem;
+}
+
+@media (max-width: 360px) {
+    .hero-slide-content {
+        padding: 0 1rem;
+    }
+}
+
+.hero-slide-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--secondary);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-slide-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 700;
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.hero-slide-desc {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 600px;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+    opacity: 0;
+}
+
+.hero-slide-actions {
+    display: flex;
+    gap: 1.5rem;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+    opacity: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Redesigned Search Section - Floating Glassmorphism */
+.floating-search-container {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1100px;
+    z-index: 20;
+    padding: 0 1.5rem;
+}
+
+.search-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+}
+
+.search-glass .search-group {
+    border-right: 1px solid rgba(15, 23, 42, 0.1);
+    padding: 0;
+}
+
+.search-glass .search-label {
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+.search-glass .search-input,
+.search-glass .search-select {
+    font-size: 1.125rem;
+    color: var(--primary);
+    margin-top: 0.5rem;
+}
+
+/* Featured Listings Section - Modern Cards */
+.listings-highlight {
+    background: var(--bg-body);
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+}
+
+.modern-listing-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.modern-listing-card {
+    background: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid var(--border-light);
+    height: 100%;
+}
+
+.modern-listing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-premium);
+}
+
+.modern-listing-img {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.modern-listing-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.modern-listing-card:hover .modern-listing-img img {
+    transform: scale(1.1);
+}
+
+.modern-listing-price {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-md);
+}
+
+.modern-listing-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: var(--secondary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.modern-listing-content {
+    padding: 2rem;
+}
+
+.modern-listing-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+}
+
+.modern-listing-location {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modern-listing-meta {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.modern-listing-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.modern-listing-meta i {
+    color: var(--secondary);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 8rem 0;
+    background: var(--primary);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-section::after {
+    content: '“';
+    position: absolute;
+    top: -50px;
+    right: 50px;
+    font-size: 30rem;
+    color: rgba(255, 255, 255, 0.03);
+    font-family: serif;
+    line-height: 1;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial-content {
+    font-size: 1.75rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+}
+
+.testimonial-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.testimonial-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary);
+}
+
+.testimonial-info h4 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-info p {
+    color: var(--secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Modern CTA Section */
+.modern-cta {
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding: 5rem 3rem;
+    border-radius: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+}
+
+.cta-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1920&q=40');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+/* Responsive Home 2 */
+@media (max-width: 992px) {
+    .search-glass {
+        grid-template-columns: 1fr 1fr;
+        border-radius: 1.5rem;
+    }
+
+    .hero-slide-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slider-section {
+        height: auto;
+        min-height: 500px;
+    }
+
+    .hero-slide {
+        padding: 6rem 0;
+    }
+
+    .hero-slide-title {
+        font-size: 2.5rem;
+    }
+
+    .floating-search-container {
+        position: relative;
+        bottom: 0;
+        transform: none;
+        left: 0;
+        margin-top: -80px;
+        padding-bottom: 2rem;
+    }
+
+    .search-glass {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1.5rem;
+        border-radius: 1.5rem;
+    }
+
+    .search-glass .search-group {
+        border-right: none;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+        padding-bottom: 1rem;
+    }
+
+    .search-glass .search-group:last-of-type {
+        border-bottom: none;
+    }
+
+    .listings-highlight {
+        padding-top: 3rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-slide-title {
+        font-size: 2rem !important;
+    }
+
+    .hero-slide-desc {
+        font-size: 1rem !important;
+    }
+
+    .hero-slide-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .hero-slide-actions .btn {
+        width: 100%;
+    }
+
+    .floating-search-container {
+        margin-top: -40px;
+        padding: 0 12px;
+    }
+
+    .search-glass {
+        padding: 1.25rem;
+        border-radius: 1rem;
+    }
+
+    .modern-listing-img {
+        height: 200px;
+    }
+
+    .modern-listing-price {
+        padding: 0.5rem 1rem;
+        font-size: 1.125rem;
+        bottom: 1rem;
+        left: 1rem;
+    }
+
+    .modern-listing-content {
+        padding: 1.25rem !important;
+    }
+
+    .modern-listing-title {
+        font-size: 1.25rem !important;
+    }
+
+    .cta-content h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .modern-listing-meta {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        align-items: flex-start !important;
+    }
+
+    .modern-listing-meta span {
+        width: 100%;
+    }
+}

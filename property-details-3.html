@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline Penthouse - LuxeEstate Premium</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home2.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        function handleImageError(img) {
+            img.onerror = null;
+            img.src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80';
+            img.classList.add('image-fallback');
+        }
+    </script>
+    <style>
+        .property-details-hero {
+            position: relative;
+            height: 600px;
+            width: 100%;
+        }
+
+        .property-gallery-swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery-slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .property-header-info {
+            background: white;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 0.5rem;
+        }
+
+        .property-title-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .property-main-title h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            overflow-wrap: anywhere;
+            word-wrap: break-word;
+        }
+
+        .property-price-tag {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .property-stats {
+            background: var(--bg-subtle);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+        }
+
+        .property-main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .property-sidebar {
+            position: sticky;
+            top: 100px;
+            background: white;
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-list-premium {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item-premium {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-subtle);
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+
+        .feature-item-premium:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .feature-item-premium i {
+            font-size: 1.75rem;
+            color: var(--secondary);
+        }
+
+        @media (max-width: 1024px) {
+            .property-main-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .property-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .property-details-hero {
+                height: 400px;
+            }
+
+            .property-main-title h1 {
+                font-size: 2rem;
+            }
+
+            .property-price-tag {
+                font-size: 2rem;
+            }
+
+            .property-stats {
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .property-title-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                min-width: calc(50% - 1rem);
+            }
+
+            .feature-list-premium {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 16px !important;
+            }
+
+            .property-header-info {
+                padding: 2rem 0;
+            }
+
+            .property-main-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .property-price-tag {
+                font-size: 1.5rem;
+            }
+
+            .property-stats {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.25rem;
+                gap: 1.25rem;
+            }
+
+            .stat-item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                text-align: left;
+                width: 100%;
+            }
+
+            .stat-icon {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            .stat-value {
+                font-size: 1.25rem;
+            }
+
+            .property-sidebar {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 0.875rem !important;
+            }
+
+            .feature-item-premium {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container flex justify-between items-center gap-8">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-house-line"></i>
+                </div>
+                Luxe<span>Estate</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index-2.html" class="nav-link">Home2</a></li>
+                    <li><a href="properties.html" class="nav-link">Properties</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions flex items-center gap-6">
+                <div class="user-dropdown-container">
+                    <button class="profile-btn" id="profileDropdownBtn">
+                        <i class="ph ph-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="login.html" class="dropdown-item"><i class="ph ph-sign-in"></i> Log In</a>
+                        <a href="register.html" class="dropdown-item"><i class="ph ph-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-menu">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="index-2.html" class="mobile-nav-link">Home2</a></li>
+                <li><a href="properties.html" class="mobile-nav-link">Properties</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Gallery Slider -->
+        <section class="property-details-hero">
+            <div class="swiper property-gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide gallery-slide"
+                        style="background-image: url('assets/images/properties/penthouse.jpg');">
+                    </div>
+                    <div class="swiper-slide gallery-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="swiper-slide gallery-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                </div>
+                <div class="swiper-button-next" style="color: white;"></div>
+                <div class="swiper-button-prev" style="color: white;"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Header Info -->
+        <section class="property-header-info">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Skyline Penthouse</li>
+                </ul>
+
+                <div class="property-title-section">
+                    <div class="property-main-title">
+                        <h1>Skyline Penthouse</h1>
+                        <p style="font-size: 1.25rem; color: var(--text-muted);"><i class="ph ph-map-pin"></i> 500
+                            Skyline Blvd, New York, NY</p>
+                    </div>
+                    <div class="property-price-tag">
+                        $8,500<span style="font-size: 1.25rem; font-weight: 400;">/mo</span>
+                    </div>
+                </div>
+
+                <div class="property-stats">
+                    <div class="stat-item">
+                        <i class="ph ph-bed stat-icon"></i>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Bedrooms</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="ph ph-shower stat-icon"></i>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Bathrooms</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="ph ph-arrows-out stat-icon"></i>
+                        <div class="stat-value">2,500</div>
+                        <div class="stat-label">Square Feet</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="ph ph-buildings stat-icon"></i>
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Floor</div>
+                    </div>
+                </div>
+
+                <div class="grid property-main-grid">
+                    <div class="property-description">
+                        <h2 style="margin-bottom: 1.5rem;">Exclusive Urban Living</h2>
+                        <p
+                            style="line-height: 1.8; color: var(--text-main); margin-bottom: 1.5rem; font-size: 1.125rem;">
+                            Live above the hustle and bustle in the city's most coveted penthouse. Offering 360-degree
+                            panoramic views of the New York skyline, this residence is a sanctuary of peace and modern
+                            luxury.
+                        </p>
+                        <p style="line-height: 1.8; color: var(--text-muted); margin-bottom: 2rem;">
+                            The property features oversized windows in every room, a private terrace, and a
+                            custom-designed interior by world-renowned architects. Residents enjoy exclusive access to
+                            the building's private club, sky lounge, and concierge services that cater to every whim.
+                        </p>
+
+                        <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Penthouse Amenities</h3>
+                        <div class="feature-list-premium">
+                            <div class="feature-item-premium">
+                                <i class="ph ph-mountains"></i>
+                                <span>City Views</span>
+                            </div>
+                            <div class="feature-item-premium">
+                                <i class="ph ph-door"></i>
+                                <span>Private Elevator</span>
+                            </div>
+                            <div class="feature-item-premium">
+                                <i class="ph ph-thermometer-cold"></i>
+                                <span>Wine Storage</span>
+                            </div>
+                            <div class="feature-item-premium">
+                                <i class="ph ph-sun"></i>
+                                <span>Private Terrace</span>
+                            </div>
+                            <div class="feature-item-premium">
+                                <i class="ph ph-hand-coins"></i>
+                                <span>Concierge</span>
+                            </div>
+                            <div class="feature-item-premium">
+                                <i class="ph ph-drop"></i>
+                                <span>Steam Shower</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="property-sidebar-container">
+                        <div class="property-sidebar">
+                            <h3 style="margin-bottom: 1.5rem;">Rent the Skyline</h3>
+                            <form action="#" class="flex flex-direction-column gap-4">
+                                <div>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full
+                                        Name</label>
+                                    <input type="text" placeholder="Full Name"
+                                        style="width: 100%; padding: 0.875rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email
+                                        Address</label>
+                                    <input type="email" placeholder="Email Address"
+                                        style="width: 100%; padding: 0.875rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+                                </div>
+                                <div>
+                                    <label
+                                        style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                                    <textarea rows="4" placeholder="Your Message"
+                                        style="width: 100%; padding: 0.875rem; border: 1px solid var(--border-light); border-radius: var(--radius-md); font-family: inherit;"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 1rem;">Send
+                                    Inquiry</button>
+                                <a href="#" class="btn btn-outline"
+                                    style="width: 100%; text-align: center; padding: 1rem;">Book a Viewing</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" style="margin-top: 6rem;">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="site-logo">
+                        <div class="logo-icon">
+                            <i class="ph-fill ph-house-line"></i>
+                        </div>
+                        Luxe<span>Estate</span>
+                    </a>
+                    <p>Premium real estate solutions for buyers, sellers, and renters. We bring your dream home to
+                        reality with trust and excellence.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index-2.html">Home2</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="ph ph-map-pin"></i> 10001 Manhattan, New York</li>
+                        <li><i class="ph ph-phone"></i> +1 (234) 567-890</li>
+                        <li><i class="ph ph-envelope"></i> info@luxeestate.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeEstate. All rights reserved.</p>
+                <div class="social-links flex gap-4">
+                    <a href="#"><i class="ph ph-facebook-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo" style="font-size: 1.5rem;"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        const gallerySwiper = new Swiper('.property-gallery-swiper', {
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>
