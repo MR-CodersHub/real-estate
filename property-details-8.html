@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highland Manor - LuxeEstate Premium</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .property-details-hero {
+            height: 600px;
+            width: 100%;
+        }
+
+        .gallery-slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .property-header-info {
+            background: white;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .property-stats {
+            background: var(--bg-subtle);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container flex justify-between items-center gap-8">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon"><i class="ph-fill ph-house-line"></i></div> Luxe<span>Estate</span>
+            </a>
+            <nav class="desktop-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="properties.html" class="nav-link">Properties</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="property-details-hero">
+            <div class="gallery-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1920&q=80');">
+            </div>
+        </section>
+
+        <section class="property-header-info">
+            <div class="container">
+                <h1>Highland Manor</h1>
+                <p><i class="ph ph-map-pin"></i> 45 Highland St, Denver, CO</p>
+                <div class="property-stats">
+                    <div class="stat-item"> <i class="ph ph-bed stat-icon"></i>
+                        <div>5 Beds</div>
+                    </div>
+                    <div class="stat-item"> <i class="ph ph-shower stat-icon"></i>
+                        <div>4 Baths</div>
+                    </div>
+                    <div class="stat-item"> <i class="ph ph-arrows-out stat-icon"></i>
+                        <div>3,600 sqft</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 LuxeEstate. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
